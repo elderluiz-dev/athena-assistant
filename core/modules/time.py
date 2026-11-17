@@ -2,6 +2,7 @@
 from datetime import datetime
 
 def show_time():
+    type = "show_time"
     now = datetime.now()
 
     weekdays = {
@@ -16,7 +17,10 @@ def show_time():
 
     weekday = weekdays[now.weekday()]
 
-    print(
-        f"Hoje é {weekday}, dia {now.day}. "
-        f"Agora são {now.hour:02d}:{now.minute:02d}.\n"
-    )
+    return{
+        "type": "show_time",
+        "weekday": weekday,
+        "day": now.day,
+        "hour": now.hour,
+        "minute": now.minute    
+    }
