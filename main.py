@@ -1,19 +1,37 @@
+from core.modules.system_monitor import *
+from core.modules.time import *
+
+COMMANDS = {
+    "monitor": system_monitor,
+    "tempo": show_time,
+}
+
+
 def main():
-    temperatures = []
-    temp = float(input("Temperatura: "))
-    temperatures.append(temp)
-    temp = float(input("Temperatura: "))
-    temperatures.append(temp)
-    temp = float(input("Temperatura: "))
-    temperatures.append(temp)
+    print('\033[H\033[2J', end='')
+    print("Athena Assistant")
 
-    count = 0
-    for temp in temperatures:
-        print(f"{temp:.1f} ºC")
-        count = count + 1
+    while True:
+        listener = input("> ").strip().lower()
 
-    print("Temperaturas lidas:", count)
-    print(f"Ultima temperatura lida: {temperatures[-1]} ºC")
+        if listener != "athena":
+            continue
+
+        print('\033[H\033[2J', end='')
+        print("Athena ativada!")
+
+        while True:
+            command = input("cmd> ").strip().lower()
+
+            if command == "sair":
+                break
+
+            if command in COMMANDS:
+                COMMANDS[command]()
+            else:
+                print("Comando não reconhecido.")
+            
+
 
 if __name__ == "__main__":
     main()
