@@ -1,10 +1,14 @@
+from core.interface import print_parser
 from core.modules.system_monitor import system_monitor
 from core.modules.time import show_time
-from core.interface import print_parser
+from core.modules.player import *
 
 COMMANDS = {
     "monitor": system_monitor,
     "tempo": show_time,
+    "spotify": open_spotify,
+    "pausar": lambda: music_player("pause"),
+    "play": lambda: music_player("play")
 }
 
 def athena():

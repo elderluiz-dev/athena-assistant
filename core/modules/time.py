@@ -1,8 +1,6 @@
-
 from datetime import datetime
 
 def show_time():
-    type = "show_time"
     now = datetime.now()
 
     weekdays = {
